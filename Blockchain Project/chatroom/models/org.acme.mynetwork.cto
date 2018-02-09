@@ -1,0 +1,27 @@
+/**
+ * My commodity trading network
+ */
+namespace org.acme.mynetwork
+
+asset ChatMessage identified by chatMessageId {
+    o String chatMessageId
+    o String chatMessageContent
+    --> Client sender
+    --> Chatroom room
+}
+participant Client identified by clientName {
+    o String clientName
+
+}
+participant Chatroom identified by chatroomName {
+    o String chatroomName
+
+}
+/*transaction Chat {
+    --> ChatMessage chatMessage
+}*/
+
+transaction ChatClientChatroom {
+    --> ChatMessage chatMessage
+}
+
